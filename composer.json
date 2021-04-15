@@ -1,5 +1,5 @@
 {
-    "name": "epg-qugo/qugo-rabbitmq-transfer",
+    "name": "smskin/qugo-rabbitmq-transfer",
     "description": "RabbitMQ Transfer service for Laravel-based projects",
     "type": "library",
     "license": "MIT",
