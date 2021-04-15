@@ -13,7 +13,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $configPath = __DIR__ . DIRECTORY_SEPARATOR . 'src/config/qugo-rabbit-transfer.php';
+        $configPath = __DIR__ . DIRECTORY_SEPARATOR . 'config/qugo-rabbit-transfer.php';
         $this->mergeConfigFrom($configPath, 'qugo-rabbit-transfer');
     }
 
