@@ -24,6 +24,8 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__.'/config/qugo-rabbit-transfer.php' => config_path('qugo-rabbit-transfer.php'),
+        ], 'config');
     }
 }
