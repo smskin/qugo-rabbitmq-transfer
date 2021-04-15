@@ -1,0 +1,37 @@
+{
+    "name": "epg-qugo/qugo-rabbitmq-transfer",
+    "description": "RabbitMQ Transfer service for Laravel-based projects",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sergey Mikhaylov",
+            "email": "serg@msoinvest.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^7.2|^8.0",
+        "laravel/framework": "^6.2|8.*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "Qugo\\RabbitMQTransfer\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Qugo\\RabbitMQTransfer\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "prettier": ["npm run php-prettier"],
+        "cs-fixer": ["php-cs-fixer fix ./src --rules=@PSR2 --verbose"]
+    }
+}
