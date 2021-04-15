@@ -5,23 +5,23 @@ namespace Qugo\RabbitMQTransfer\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanRefreshStatus;
-use Qugo\RabbitMQTransfer\Events\EWorkmanRefreshStatus;
+use Qugo\RabbitMQTransfer\DTO\DTOWorkmanResetStatus;
+use Qugo\RabbitMQTransfer\Events\EWorkmanResetStatus;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
-class WorkmanRefreshStatusRequest extends BaseRequest
+class WorkmanResetStatusRequest extends BaseRequest
 {
     /**
-     * @var DTOWorkmanRefreshStatus
+     * @var DTOWorkmanResetStatus
      */
     public $dto;
 
     /**
      * WorkmanToUnknownRequest constructor.
      *
-     * @param DTOWorkmanRefreshStatus $dto
+     * @param DTOWorkmanResetStatus $dto
      */
-    public function __construct(DTOWorkmanRefreshStatus $dto)
+    public function __construct(DTOWorkmanResetStatus $dto)
     {
         parent::__construct($dto);
     }
@@ -39,7 +39,7 @@ class WorkmanRefreshStatusRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EWorkmanRefreshStatus($this->dto);
+        return new EWorkmanResetStatus($this->dto);
     }
 
     /**
@@ -47,6 +47,6 @@ class WorkmanRefreshStatusRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOWorkmanRefreshStatus::class;
+        return DTOWorkmanResetStatus::class;
     }
 }

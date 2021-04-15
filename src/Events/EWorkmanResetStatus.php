@@ -3,14 +3,14 @@
 namespace Qugo\RabbitMQTransfer\Events;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanRefreshStatus;
+use Qugo\RabbitMQTransfer\DTO\DTOWorkmanResetStatus;
 
 /**
  * Class EWorkmanToUnknown
  *
  * @package Qugo\RabbitMQTransfer\Events
  */
-class EWorkmanRefreshStatus extends BaseEvent
+class EWorkmanResetStatus extends BaseEvent
 {
     /**
      * @var
@@ -20,9 +20,9 @@ class EWorkmanRefreshStatus extends BaseEvent
     /**
      * EWorkmanToUnknown constructor.
      *
-     * @param DTOWorkmanRefreshStatus $dto
+     * @param DTOWorkmanResetStatus $dto
      */
-    public function __construct(DTOWorkmanRefreshStatus $dto)
+    public function __construct(DTOWorkmanResetStatus $dto)
     {
         $this->inn = $dto->data['inn'];
         parent::__construct($dto);

@@ -10,7 +10,7 @@ use Qugo\RabbitMQTransfer\BaseDTO;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOWorkmanRefreshStatus extends BaseDTO
+class DTOWorkmanResetStatus extends BaseDTO
 {
     /**
      * DTOWorkmanToUnknown constructor.
