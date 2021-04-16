@@ -20,22 +20,22 @@ class EReceiptCreated extends BaseEvent
     /**
      * @var string
      */
-    public $income_type;
+    public $incomeType;
 
     /**
      * @var string
      */
-    public $workman_inn;
+    public $workmanINN;
 
     /**
      * @var string
      */
-    public $customer_inn;
+    public $customerINN;
 
     /**
      * @var string
      */
-    public $customer_name;
+    public $customerName;
 
     /**
      * @var array
@@ -56,10 +56,10 @@ class EReceiptCreated extends BaseEvent
     {
         parent::__construct($dto);
         $this->id = $dto->data['id'];
-        $this->income_type = $dto->data['income_type'];
-        $this->workman_inn = $dto->data['workman_inn'];
-        $this->customer_inn = $dto->data['customer_inn'];
-        $this->customer_name = $dto->data['customer_name'];
+        $this->incomeType = $dto->data['incomeType'];
+        $this->workmanINN = $dto->data['workmanINN'];
+        $this->customerINN = $dto->data['customerINN'];
+        $this->customerName = $dto->data['customerName'];
         $this->services = $dto->data['services'];
         $this->date = $dto->data['date'];
     }

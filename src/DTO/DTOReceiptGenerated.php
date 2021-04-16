@@ -32,7 +32,7 @@ class DTOReceiptGenerated extends BaseDTO
      * @param int $id
      * @param string $stateID
      * @param string|null $externalURL
-     * @param string|null $externalIdent
+     * @param string|null $externalIDent
      * @param string|null $externalRequestTime
      * @param string|null $externalError
      * @throws ValidationException
@@ -41,7 +41,7 @@ class DTOReceiptGenerated extends BaseDTO
         int $id,
         string $stateID,
         ?string $externalURL,
-        ?string $externalIdent,
+        ?string $externalIDent,
         ?string $externalRequestTime,
         ?string $externalError
     )
@@ -50,7 +50,7 @@ class DTOReceiptGenerated extends BaseDTO
             'id' => $id,
             'stateID' => $stateID,
             'externalURL' => $externalURL,
-            'externalIdent' => $externalIdent,
+            'externalIDent' => $externalIDent,
             'externalRequestTime' => $externalRequestTime,
             'externalError' => $externalError
         ]);
@@ -65,7 +65,7 @@ class DTOReceiptGenerated extends BaseDTO
             'id' => 'required|integer',
             'stateID' => 'required|in:'.implode(',', $this->states),
             'externalURL' => 'nullable|string',
-            'externalIdent' => 'nullable|string',
+            'externalIDent' => 'nullable|string',
             'externalRequestTime' => 'nullable|string',
             'externalError' => 'nullable|string'
         ];

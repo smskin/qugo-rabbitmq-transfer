@@ -25,17 +25,17 @@ class EWorkmanUpdatedStatus extends BaseEvent
     /**
      * @var null|string
      */
-    public $external_description;
+    public $externalDescription;
 
     /**
      * @var null|string
      */
-    public $external_date;
+    public $externalDate;
 
     /**
      * @var bool
      */
-    public $access_tax_payment;
+    public $accessTaxPayment;
 
     /**
      * EWorkmanUpdatedStatus constructor.
@@ -47,8 +47,8 @@ class EWorkmanUpdatedStatus extends BaseEvent
         parent::__construct($dto);
         $this->inn = $dto->data['inn'];
         $this->status = $dto->data['status'];
-        $this->external_description = $dto->data['external_description'];
-        $this->external_date = $dto->data['external_date'];
-        $this->access_tax_payment = $dto->data['access_tax_payment'];
+        $this->externalDescription = $dto->data['externalDescription'];
+        $this->externalDate = $dto->data['externalDate'];
+        $this->accessTaxPayment = $dto->data['accessTaxPayment'];
     }
 }

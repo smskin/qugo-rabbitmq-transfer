@@ -15,7 +15,7 @@ class EFNSNotificationRead extends BaseEvent
     /**
      * @var string
      */
-    public $external_id;
+    public $externalID;
 
     /**
      * EFNSNotificationRead constructor.
@@ -25,6 +25,6 @@ class EFNSNotificationRead extends BaseEvent
     public function __construct(DTOFNSNotificationRead $dto)
     {
         parent::__construct($dto);
-        $this->external_id = $dto->data['external_id'];
+        $this->externalID = $dto->data['externalID'];
     }
 }

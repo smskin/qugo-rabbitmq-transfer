@@ -30,7 +30,7 @@ class EReceiptGenerated extends BaseEvent
     /**
      * @var string
      */
-    public $externalIdent;
+    public $externalIDent;
 
     /**
      * @var string
@@ -53,7 +53,7 @@ class EReceiptGenerated extends BaseEvent
         $this->id = $dto->data['id'];
         $this->stateID = $dto->data['stateID'];
         $this->externalURL = $dto->data['externalURL'];
-        $this->externalIdent = $dto->data['externalIdent'];
+        $this->externalIDent = $dto->data['externalIDent'];
         $this->externalRequestTime = $dto->data['externalRequestTime'];
         $this->externalError = $dto->data['externalError'];
     }

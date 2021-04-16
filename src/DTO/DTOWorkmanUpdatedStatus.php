@@ -32,25 +32,25 @@ class DTOWorkmanUpdatedStatus extends BaseDTO
      *
      * @param string $inn
      * @param string $status
-     * @param bool $access_tax_payment
-     * @param string|null $external_description
-     * @param string|null $external_date
+     * @param bool $accessTaxPayment
+     * @param string|null $externalDescription
+     * @param string|null $externalDate
      * @throws ValidationException
      */
     public function __construct(
         string $inn,
         string $status,
-        bool $access_tax_payment = false,
-        string $external_description = null,
-        string $external_date = null
+        bool $accessTaxPayment = false,
+        string $externalDescription = null,
+        string $externalDate = null
     )
     {
         parent::__construct((object)[
             'inn' => $inn,
             'status' => $status,
-            'external_description' => $external_description,
-            'external_date' => $external_date,
-            'access_tax_payment' => $access_tax_payment
+            'externalDescription' => $externalDescription,
+            'externalDate' => $externalDate,
+            'accessTaxPayment' => $accessTaxPayment
         ]);
     }
 
@@ -65,9 +65,9 @@ class DTOWorkmanUpdatedStatus extends BaseDTO
                 new InnFlRule()
             ],
             'status'               => 'required|in:'.implode(',', $this->statuses),
-            'external_description' => 'nullable|string',
-            'external_date'        => 'nullable|date',
-            'access_tax_payment'   => 'required|boolean',
+            'externalDescription' => 'nullable|string',
+            'externalDate'        => 'nullable|date',
+            'accessTaxPayment'   => 'required|boolean',
         ];
     }
 }

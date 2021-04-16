@@ -15,11 +15,11 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
 class DTOReceiptCreated extends BaseDTO
 {
     /**
-     * Available income_types
+     * Available incomeTypes
      *
      * @var string[]
      */
-    private $income_types = [
+    private $incomeTypes = [
         'FROM_INDIVIDUAL',
         'FROM_LEGAL_ENTITY',
         'FROM_FOREIGN_AGENCY'
@@ -29,31 +29,31 @@ class DTOReceiptCreated extends BaseDTO
      * DTOReceiptCreated constructor.
      *
      * @param int $id
-     * @param string $workman_inn
-     * @param string $customer_inn
-     * @param string $customer_name
+     * @param string $workmanINN
+     * @param string $customerINN
+     * @param string $customerName
      * @param array $services
-     * @param string $income_type
+     * @param string $incomeType
      * @param string $date
      * @throws ValidationException
      */
     public function __construct(
         int $id,
-        string $workman_inn,
-        string $customer_inn,
-        string $customer_name,
+        string $workmanINN,
+        string $customerINN,
+        string $customerName,
         array $services,
-        string $income_type,
+        string $incomeType,
         string $date
     )
     {
         parent::__construct((object)[
             'id' => $id,
-            'workman_inn' => $workman_inn,
-            'customer_inn' => $customer_inn,
-            'customer_name' => $customer_name,
+            'workmanINN' => $workmanINN,
+            'customerINN' => $customerINN,
+            'customerName' => $customerName,
             'services' => $services,
-            'income_type' => $income_type,
+            'incomeType' => $incomeType,
             'date' => $date,
         ]);
     }
@@ -65,20 +65,20 @@ class DTOReceiptCreated extends BaseDTO
     {
         return [
             'id' => 'required|integer',
-            'workman_inn' => [
+            'workmanINN' => [
                 'required',
                 new InnFlRule()
             ],
-            'customer_inn' => [
+            'customerINN' => [
                 'required',
                 new InnRule()
             ],
-            'customer_name' => 'required|string',
+            'customerName' => 'required|string',
             'services' => 'required|array',
             'services.*.name' => 'required|string',
             'services.*.amount' => 'required|numeric',
             'services.*.quantity' => 'required|integer',
-            'income_type' => 'required|in:'.implode($this->income_types),
+            'incomeType' => 'required|in:'.implode($this->incomeTypes),
             'date' => 'required|date'
         ];
     }

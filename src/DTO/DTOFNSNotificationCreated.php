@@ -17,25 +17,25 @@ class DTOFNSNotificationCreated extends BaseDTO
     /**
      * DTOFNSNotificationCreated constructor.
      *
-     * @param int $external_id
+     * @param int $externalID
      * @param string $inn
      * @param string $title
      * @param string $text
-     * @param string $created_at
+     * @param string $createdAt
      * @throws ValidationException
      */
     public function __construct(
-        int $external_id,
+        int $externalID,
         string $inn,
         string $title,
         string $text,
-        string $created_at
+        string $createdAt
     )
     {
         parent::__construct((object) [
-            'external_id' => $external_id,
+            'externalID' => $externalID,
             'inn' => $inn,
-            'created_at' => $created_at,
+            'createdAt' => $createdAt,
             'title' => $title,
             'text' => $text,
         ]);
@@ -47,12 +47,12 @@ class DTOFNSNotificationCreated extends BaseDTO
     public function rules(): array
     {
         return [
-            'external_id' => 'required|integer',
+            'externalID' => 'required|integer',
             'inn' => [
                 'required',
                 new InnRule()
             ],
-            'created_at' => 'required|date',
+            'createdAt' => 'required|date',
             'title' => 'required|string',
             'text' => 'required|string'
         ];

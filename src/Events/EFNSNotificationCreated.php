@@ -15,7 +15,7 @@ class EFNSNotificationCreated extends BaseEvent
     /**
      * @var int
      */
-    public $external_id;
+    public $externalID;
 
     /**
      * @var string
@@ -35,7 +35,7 @@ class EFNSNotificationCreated extends BaseEvent
     /**
      * @var string
      */
-    public $created_at;
+    public $createdAt;
 
     /**
      * EFNSNotificationCreated constructor.
@@ -45,10 +45,10 @@ class EFNSNotificationCreated extends BaseEvent
     public function __construct(DTOFNSNotificationCreated $dto)
     {
         parent::__construct($dto);
-        $this->external_id = $dto->data['external_id'];
+        $this->externalID = $dto->data['externalID'];
         $this->inn = $dto->data['inn'];
         $this->title = $dto->data['title'];
         $this->text = $dto->data['text'];
-        $this->created_at = $dto->data['created_at'];
+        $this->createdAt = $dto->data['createdAt'];
     }
 }
