@@ -5,6 +5,11 @@ namespace Qugo\RabbitMQTransfer\Events;
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\DTO\DTOReceiptGenerated;
 
+/**
+ * Class EReceiptGenerated
+ *
+ * @package Qugo\RabbitMQTransfer\Events
+ */
 class EReceiptGenerated extends BaseEvent
 {
     /**

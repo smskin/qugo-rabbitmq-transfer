@@ -5,6 +5,11 @@ namespace Qugo\RabbitMQTransfer\Events;
 use Qugo\RabbitMQTransfer\DTO\DTOWorkmanCreatedRequest;
 use Qugo\RabbitMQTransfer\BaseEvent;
 
+/**
+ * Class EWorkmanCreated
+ *
+ * @package Qugo\RabbitMQTransfer\Events
+ */
 class EWorkmanCreated extends BaseEvent
 {
     /**

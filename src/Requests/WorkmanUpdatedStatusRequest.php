@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Qugo\RabbitMQTransfer\Requests;
-
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
@@ -10,6 +8,11 @@ use Qugo\RabbitMQTransfer\DTO\DTOWorkmanUpdatedStatus;
 use Qugo\RabbitMQTransfer\Events\EWorkmanUpdatedStatus;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
+/**
+ * Class WorkmanUpdatedStatusRequest
+ *
+ * @package Qugo\RabbitMQTransfer\Requests
+ */
 class WorkmanUpdatedStatusRequest extends BaseRequest
 {
     /**

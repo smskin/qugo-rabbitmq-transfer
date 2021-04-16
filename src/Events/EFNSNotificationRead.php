@@ -5,7 +5,11 @@ namespace Qugo\RabbitMQTransfer\Events;
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\DTO\DTOFNSNotificationRead;
 
-
+/**
+ * Class EFNSNotificationRead
+ *
+ * @package Qugo\RabbitMQTransfer\Events
+ */
 class EFNSNotificationRead extends BaseEvent
 {
     /**

@@ -14,6 +14,11 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
 class DTOWorkmanCreatedRequest extends BaseDTO
 {
     /**
+     * @var bool
+     */
+    private $noMiddleName;
+
+    /**
      * DTOWorkmanCreatedRequest constructor.
      *
      * @param string $phone
@@ -25,9 +30,6 @@ class DTOWorkmanCreatedRequest extends BaseDTO
      * @param string|null $middleName
      * @throws ValidationException
      */
-
-    private $noMiddleName;
-
     public function __construct(string $phone, string $email, string $inn, string $firstName, string $lastName, bool $noMiddleName = true, ?string $middleName = null)
     {
         $this->noMiddleName = $noMiddleName;

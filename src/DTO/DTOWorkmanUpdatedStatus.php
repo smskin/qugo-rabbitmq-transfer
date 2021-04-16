@@ -6,6 +6,11 @@ use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
 use Qugo\RabbitMQTransfer\Rules\InnFlRule;
 
+/**
+ * Class DTOWorkmanUpdatedStatus
+ *
+ * @package Qugo\RabbitMQTransfer\DTO
+ */
 class DTOWorkmanUpdatedStatus extends BaseDTO
 {
     /**

@@ -1,12 +1,15 @@
 <?php
 
-
 namespace Qugo\RabbitMQTransfer\Events;
 
-
-use Qugo\RabbitMQTransfer\BaseDTO;
 use Qugo\RabbitMQTransfer\BaseEvent;
+use Qugo\RabbitMQTransfer\DTO\DTOFNSNotificationCreated;
 
+/**
+ * Class EFNSNotificationCreated
+ *
+ * @package Qugo\RabbitMQTransfer\Events
+ */
 class EFNSNotificationCreated extends BaseEvent
 {
     /**
@@ -34,7 +37,12 @@ class EFNSNotificationCreated extends BaseEvent
      */
     public $created_at;
 
-    public function __construct(BaseDTO $dto)
+    /**
+     * EFNSNotificationCreated constructor.
+     *
+     * @param DTOFNSNotificationCreated $dto
+     */
+    public function __construct(DTOFNSNotificationCreated $dto)
     {
         parent::__construct($dto);
         $this->external_id = $dto->data['external_id'];

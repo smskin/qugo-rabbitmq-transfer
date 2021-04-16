@@ -9,6 +9,11 @@ use Qugo\RabbitMQTransfer\DTO\DTOWorkmanResetStatus;
 use Qugo\RabbitMQTransfer\Events\EWorkmanResetStatus;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
+/**
+ * Class WorkmanResetStatusRequest
+ *
+ * @package Qugo\RabbitMQTransfer\Requests
+ */
 class WorkmanResetStatusRequest extends BaseRequest
 {
     /**
@@ -31,7 +36,9 @@ class WorkmanResetStatusRequest extends BaseRequest
      */
     public function getQueues(): array
     {
-        return [RabbitMQTransferService::QUEUE_TO_SMZ];
+        return [
+            RabbitMQTransferService::QUEUE_TO_SMZ
+        ];
     }
 
     /**

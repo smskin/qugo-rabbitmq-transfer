@@ -6,6 +6,11 @@ use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
 use Qugo\RabbitMQTransfer\Rules\InnRule;
 
+/**
+ * Class DTOFNSNotificationCreated
+ *
+ * @package Qugo\RabbitMQTransfer\DTO
+ */
 class DTOFNSNotificationCreated extends BaseDTO
 {
 

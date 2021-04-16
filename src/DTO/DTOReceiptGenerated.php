@@ -1,13 +1,20 @@
 <?php
 
-
 namespace Qugo\RabbitMQTransfer\DTO;
 
-
+use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
 
+/**
+ * Class DTOReceiptGenerated
+ *
+ * @package Qugo\RabbitMQTransfer\DTO
+ */
 class DTOReceiptGenerated extends BaseDTO
 {
+    /**
+     * @var string[]
+     */
     private $states = [
         'NOT_REQUIRED',
         'PENDING',
@@ -18,6 +25,18 @@ class DTOReceiptGenerated extends BaseDTO
         'PENDING_REVERSED',
         'OFFLINE'
     ];
+
+    /**
+     * DTOReceiptGenerated constructor.
+     *
+     * @param int $id
+     * @param string $stateID
+     * @param string|null $externalURL
+     * @param string|null $externalIdent
+     * @param string|null $externalRequestTime
+     * @param string|null $externalError
+     * @throws ValidationException
+     */
     public function __construct(
         int $id,
         string $stateID,
@@ -37,6 +56,9 @@ class DTOReceiptGenerated extends BaseDTO
         ]);
     }
 
+    /**
+     * @return string[]
+     */
     public function rules(): array
     {
         return [

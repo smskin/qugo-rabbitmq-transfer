@@ -35,7 +35,9 @@ class ReceiptCreatedRequest extends BaseRequest
      */
     public function getQueues(): array
     {
-        return [RabbitMQTransferService::QUEUE_TO_SMZ];
+        return [
+            RabbitMQTransferService::QUEUE_TO_SMZ
+        ];
     }
 
     /**

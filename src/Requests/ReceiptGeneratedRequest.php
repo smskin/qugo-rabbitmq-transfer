@@ -8,7 +8,11 @@ use Qugo\RabbitMQTransfer\DTO\DTOReceiptGenerated;
 use Qugo\RabbitMQTransfer\Events\EReceiptGenerated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
-
+/**
+ * Class ReceiptGeneratedRequest
+ *
+ * @package Qugo\RabbitMQTransfer\Requests
+ */
 class ReceiptGeneratedRequest extends BaseRequest
 {
     /**

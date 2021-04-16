@@ -5,7 +5,11 @@ namespace Qugo\RabbitMQTransfer\Events;
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\DTO\DTOWorkmanUpdatedStatus;
 
-
+/**
+ * Class EWorkmanUpdatedStatus
+ *
+ * @package Qugo\RabbitMQTransfer\Events
+ */
 class EWorkmanUpdatedStatus extends BaseEvent
 {
     /**

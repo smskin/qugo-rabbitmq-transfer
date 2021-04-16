@@ -1,12 +1,15 @@
 <?php
 
-
 namespace Qugo\RabbitMQTransfer\DTO;
-
 
 use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
 
+/**
+ * Class DTOFNSNotificationRead
+ *
+ * @package Qugo\RabbitMQTransfer\DTO
+ */
 class DTOFNSNotificationRead extends BaseDTO
 {
     /**
@@ -22,6 +25,9 @@ class DTOFNSNotificationRead extends BaseDTO
         ]);
     }
 
+    /**
+     * @return string[]
+     */
     public function rules(): array
     {
         return [
