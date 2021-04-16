@@ -4,23 +4,24 @@ namespace Qugo\RabbitMQTransfer\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOFNSNotificationRead;
-use Qugo\RabbitMQTransfer\Events\EFNSNotificationRead;
+use Qugo\RabbitMQTransfer\DTO\DTOReceiptGenerated;
+use Qugo\RabbitMQTransfer\Events\EReceiptGenerated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
-class FNSNotificationRead extends BaseRequest
+
+class ReceiptGeneratedRequest extends BaseRequest
 {
     /**
-     * @var DTOFNSNotificationRead
+     * @var DTOReceiptGenerated
      */
     public $dto;
 
     /**
-     * FNSNotificationRead constructor.
+     * ReceiptGeneratedRequest constructor.
      *
-     * @param DTOFNSNotificationRead $dto
+     * @param DTOReceiptGenerated $dto
      */
-    public function __construct(DTOFNSNotificationRead $dto)
+    public function __construct(DTOReceiptGenerated $dto)
     {
         parent::__construct($dto);
     }
@@ -31,7 +32,7 @@ class FNSNotificationRead extends BaseRequest
     public function getQueues(): array
     {
         return [
-            RabbitMQTransferService::QUEUE_TO_SMZ
+            RabbitMQTransferService::QUEUE_TO_QUGO
         ];
     }
 
@@ -40,7 +41,7 @@ class FNSNotificationRead extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EFNSNotificationRead($this->dto);
+        return new EReceiptGenerated($this->dto);
     }
 
     /**
@@ -48,6 +49,6 @@ class FNSNotificationRead extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOFNSNotificationRead::class;
+        return DTOReceiptGenerated::class;
     }
 }

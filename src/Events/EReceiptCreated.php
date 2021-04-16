@@ -10,6 +10,11 @@ use Qugo\RabbitMQTransfer\DTO\DTOReceiptCreated;
 class EReceiptCreated extends BaseEvent
 {
     /**
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $income_type;
@@ -42,6 +47,7 @@ class EReceiptCreated extends BaseEvent
     public function __construct(DTOReceiptCreated $dto)
     {
         parent::__construct($dto);
+        $this->id = $dto->data['id'];
         $this->income_type = $dto->data['income_type'];
         $this->workman_inn = $dto->data['workman_inn'];
         $this->customer_inn = $dto->data['customer_inn'];

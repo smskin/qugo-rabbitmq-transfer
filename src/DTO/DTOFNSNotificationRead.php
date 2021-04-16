@@ -18,14 +18,14 @@ class DTOFNSNotificationRead extends BaseDTO
     public function __construct(string $fns_notification_id)
     {
         parent::__construct((object) [
-            'id' => $fns_notification_id
+            'external_id' => $fns_notification_id
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'id' => 'required|string'
+            'external_id' => 'required|string'
         ];
     }
 }

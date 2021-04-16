@@ -28,6 +28,7 @@ class DTOReceiptCreated extends BaseDTO
     /**
      * DTOReceiptCreated constructor.
      *
+     * @param int $id
      * @param string $workman_inn
      * @param string $customer_inn
      * @param string $customer_name
@@ -37,6 +38,7 @@ class DTOReceiptCreated extends BaseDTO
      * @throws ValidationException
      */
     public function __construct(
+        int $id,
         string $workman_inn,
         string $customer_inn,
         string $customer_name,
@@ -46,6 +48,7 @@ class DTOReceiptCreated extends BaseDTO
     )
     {
         parent::__construct((object)[
+            'id' => $id,
             'workman_inn' => $workman_inn,
             'customer_inn' => $customer_inn,
             'customer_name' => $customer_name,
@@ -61,6 +64,7 @@ class DTOReceiptCreated extends BaseDTO
     public function rules(): array
     {
         return [
+            'id' => 'required|integer',
             'workman_inn' => [
                 'required',
                 new InnFlRule()
