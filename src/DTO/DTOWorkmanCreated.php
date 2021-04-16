@@ -11,7 +11,7 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOWorkmanCreatedRequest extends BaseDTO
+class DTOWorkmanCreated extends BaseDTO
 {
     /**
      * @var bool

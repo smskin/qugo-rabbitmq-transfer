@@ -3,7 +3,7 @@
 namespace Qugo\RabbitMQTransfer\Requests;
 
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanCreatedRequest;
+use Qugo\RabbitMQTransfer\DTO\DTOWorkmanCreated;
 use Qugo\RabbitMQTransfer\Events\EWorkmanCreated;
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
@@ -18,16 +18,16 @@ class WorkmanCreatedRequest extends BaseRequest
     public static $signature = 'workman.created';
 
     /**
-     * @var DTOWorkmanCreatedRequest
+     * @var DTOWorkmanCreated
      */
     public $dto;
 
     /**
      * WorkmanCreatedRequest constructor.
      *
-     * @param DTOWorkmanCreatedRequest $dto
+     * @param DTOWorkmanCreated $dto
      */
-    public function __construct(DTOWorkmanCreatedRequest $dto)
+    public function __construct(DTOWorkmanCreated $dto)
     {
         parent::__construct($dto);
     }
@@ -37,7 +37,7 @@ class WorkmanCreatedRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOWorkmanCreatedRequest::class;
+        return DTOWorkmanCreated::class;
     }
 
     /**

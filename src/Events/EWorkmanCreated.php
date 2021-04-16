@@ -2,7 +2,7 @@
 
 namespace Qugo\RabbitMQTransfer\Events;
 
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanCreatedRequest;
+use Qugo\RabbitMQTransfer\DTO\DTOWorkmanCreated;
 use Qugo\RabbitMQTransfer\BaseEvent;
 
 /**
@@ -45,9 +45,9 @@ class EWorkmanCreated extends BaseEvent
     /**
      * EWorkmanCreated constructor.
      *
-     * @param DTOWorkmanCreatedRequest $dto
+     * @param DTOWorkmanCreated $dto
      */
-    public function __construct(DTOWorkmanCreatedRequest $dto)
+    public function __construct(DTOWorkmanCreated $dto)
     {
         parent::__construct($dto);
         $this->inn = $dto->data['inn'];
