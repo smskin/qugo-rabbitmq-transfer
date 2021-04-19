@@ -22,6 +22,8 @@ class DTOFNSNotificationCreated extends BaseDTO
      * @param string $title
      * @param string $text
      * @param string $createdAt
+     * @param bool $isRead
+     * @param string|null $readAt
      * @throws ValidationException
      */
     public function __construct(
@@ -29,7 +31,9 @@ class DTOFNSNotificationCreated extends BaseDTO
         string $inn,
         string $title,
         string $text,
-        string $createdAt
+        string $createdAt,
+        bool $isRead,
+        ?string $readAt
     )
     {
         parent::__construct((object) [
@@ -38,6 +42,8 @@ class DTOFNSNotificationCreated extends BaseDTO
             'createdAt' => $createdAt,
             'title' => $title,
             'text' => $text,
+            'isRead' => $isRead,
+            'readAt' => $readAt
         ]);
     }
 
@@ -54,7 +60,9 @@ class DTOFNSNotificationCreated extends BaseDTO
             ],
             'createdAt' => 'required|date',
             'title' => 'required|string',
-            'text' => 'required|string'
+            'text' => 'required|string',
+            'isRead' => 'required|boolean',
+            'readAt' => 'nullable|date'
         ];
     }
 }

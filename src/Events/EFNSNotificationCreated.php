@@ -38,6 +38,16 @@ class EFNSNotificationCreated extends BaseEvent
     public $createdAt;
 
     /**
+     * @var bool
+     */
+    public $isRead;
+
+    /**
+     * @var string
+     */
+    public $readAt;
+
+    /**
      * EFNSNotificationCreated constructor.
      *
      * @param DTOFNSNotificationCreated $dto
@@ -50,5 +60,7 @@ class EFNSNotificationCreated extends BaseEvent
         $this->title = $dto->data['title'];
         $this->text = $dto->data['text'];
         $this->createdAt = $dto->data['createdAt'];
+        $this->isRead = $dto->data['isRead'];
+        $this->readAt = $dto->data['readAt'];
     }
 }
