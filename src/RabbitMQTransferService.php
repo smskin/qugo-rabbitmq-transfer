@@ -3,9 +3,14 @@
 namespace Qugo\RabbitMQTransfer;
 
 use Qugo\RabbitMQTransfer\Jobs\RabbitMQTransferJob;
+use Qugo\RabbitMQTransfer\Requests\FNSNotificationCreatedRequest;
+use Qugo\RabbitMQTransfer\Requests\FNSNotificationReadRequest;
 use Qugo\RabbitMQTransfer\Requests\ReceiptCreatedRequest;
+use Qugo\RabbitMQTransfer\Requests\ReceiptGeneratedRequest;
 use Qugo\RabbitMQTransfer\Requests\WorkmanCreatedRequest;
 use Exception;
+use Qugo\RabbitMQTransfer\Requests\WorkmanResetStatusRequest;
+use Qugo\RabbitMQTransfer\Requests\WorkmanUpdatedStatusRequest;
 use ReflectionClass;
 
 /**
@@ -71,8 +76,13 @@ class RabbitMQTransferService
     private function map(): array
     {
         return [
+            FNSNotificationCreatedRequest::$signature => FNSNotificationCreatedRequest::class,
+            FNSNotificationReadRequest::$signature => FNSNotificationReadRequest::class,
+            ReceiptCreatedRequest::$signature => ReceiptCreatedRequest::class,
+            ReceiptGeneratedRequest::$signature => ReceiptGeneratedRequest::class,
             WorkmanCreatedRequest::$signature => WorkmanCreatedRequest::class,
-            ReceiptCreatedRequest::$signature => ReceiptCreatedRequest::class
+            WorkmanResetStatusRequest::$signature => WorkmanResetStatusRequest::class,
+            WorkmanUpdatedStatusRequest::$signature => WorkmanUpdatedStatusRequest::class
         ];
     }
 }

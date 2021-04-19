@@ -16,6 +16,11 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 class FNSNotificationCreatedRequest extends BaseRequest
 {
     /**
+     * @var string
+     */
+    public static $signature = 'fnsnotice.created';
+
+    /**
      * @var DTOFNSNotificationCreated
      */
     public $dto;

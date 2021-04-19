@@ -16,6 +16,11 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 class WorkmanUpdatedStatusRequest extends BaseRequest
 {
     /**
+     * @var string
+     */
+    public static $signature = 'workman.status.updated';
+
+    /**
      * @var DTOWorkmanUpdatedStatus
      */
     public $dto;
