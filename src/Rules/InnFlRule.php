@@ -38,13 +38,13 @@ class InnFlRule implements Rule
 		$check_digit = function ($inn, $coefficients) {
 			$n = 0;
 			foreach ($coefficients as $i => $k) {
-				$n += $k * (int)$inn{$i};
+				$n += $k * (int)$inn[$i];
 			}
 			return $n % 11 % 10;
 		};
 		$n11 = $check_digit($value, [7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);
 		$n12 = $check_digit($value, [3, 7, 2, 4, 10, 3, 5, 9, 4, 6, 8]);
-		if (($n11 === (int)$value{10}) && ($n12 === (int)$value{11})) {
+		if (($n11 === (int)$value[10]) && ($n12 === (int)$value[11])) {
 			return true;
 		}
 

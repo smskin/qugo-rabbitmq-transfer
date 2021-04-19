@@ -3,6 +3,7 @@
 namespace Qugo\RabbitMQTransfer;
 
 use Qugo\RabbitMQTransfer\Jobs\RabbitMQTransferJob;
+use Qugo\RabbitMQTransfer\Requests\ReceiptCreatedRequest;
 use Qugo\RabbitMQTransfer\Requests\WorkmanCreatedRequest;
 use Exception;
 use ReflectionClass;
@@ -71,6 +72,7 @@ class RabbitMQTransferService
     {
         return [
             WorkmanCreatedRequest::$signature => WorkmanCreatedRequest::class,
+            ReceiptCreatedRequest::$signature => ReceiptCreatedRequest::class
         ];
     }
 }
