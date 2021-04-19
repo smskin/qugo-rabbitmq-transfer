@@ -78,7 +78,7 @@ class DTOReceiptCreated extends BaseDTO
             'services.*.name' => 'required|string',
             'services.*.amount' => 'required|numeric',
             'services.*.quantity' => 'required|integer',
-            'incomeType' => 'required|in:'.implode($this->incomeTypes),
+            'incomeType' => 'required|in:'.implode(',', $this->incomeTypes),
             'date' => 'required|date'
         ];
     }
