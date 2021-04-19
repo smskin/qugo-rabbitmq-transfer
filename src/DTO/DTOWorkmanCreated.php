@@ -39,7 +39,8 @@ class DTOWorkmanCreated extends BaseDTO
             'inn' => $inn,
             'firstName' => $firstName,
             'lastName' => $lastName,
-            'middleName' => $middleName
+            'middleName' => $middleName,
+            'noMiddleName' => $noMiddleName,
         ]);
     }
 

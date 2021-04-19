@@ -59,7 +59,7 @@ class RabbitMQTransferService
         $data = [];
         $reflection = new ReflectionClass($dtoClass);
         foreach ($reflection->getConstructor()->getParameters() as $param) {
-            $data[] = $object->{$param->getName()};
+            $data[] = $object[$param->getName()];
         }
 
         return new $requestClass(new $dtoClass(...$data));
