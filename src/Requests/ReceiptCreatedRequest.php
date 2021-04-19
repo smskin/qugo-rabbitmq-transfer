@@ -16,6 +16,11 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 class ReceiptCreatedRequest extends BaseRequest
 {
     /**
+     * @var string
+     */
+    public static $signature = 'receipt.created';
+
+    /**
      * @var DTOReceiptCreated
      */
     public $dto;

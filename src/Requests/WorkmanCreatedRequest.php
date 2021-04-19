@@ -15,6 +15,9 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
  */
 class WorkmanCreatedRequest extends BaseRequest
 {
+    /**
+     * @var string
+     */
     public static $signature = 'workman.created';
 
     /**

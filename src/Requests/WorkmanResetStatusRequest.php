@@ -17,6 +17,11 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 class WorkmanResetStatusRequest extends BaseRequest
 {
     /**
+     * @var string
+     */
+    public static $signature = 'workman.status.reset';
+
+    /**
      * @var DTOWorkmanResetStatus
      */
     public $dto;
