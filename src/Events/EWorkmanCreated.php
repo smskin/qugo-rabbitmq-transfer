@@ -43,6 +43,11 @@ class EWorkmanCreated extends BaseEvent
     public $middleName;
 
     /**
+     * @var bool
+     */
+    public $noMiddleName;
+
+    /**
      * EWorkmanCreated constructor.
      *
      * @param DTOWorkmanCreated $dto
@@ -56,5 +61,6 @@ class EWorkmanCreated extends BaseEvent
         $this->firstName = $dto->data['firstName'];
         $this->lastName = $dto->data['lastName'];
         $this->middleName = $dto->data['middleName'];
+        $this->noMiddleName = $dto->data['noMiddleName'];
     }
 }

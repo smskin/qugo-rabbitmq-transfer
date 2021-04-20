@@ -39,7 +39,8 @@ class DTOWorkmanCreated extends BaseDTO
             'inn' => $inn,
             'firstName' => $firstName,
             'lastName' => $lastName,
-            'middleName' => $middleName
+            'middleName' => $middleName,
+            'noMiddleName' => $noMiddleName
         ]);
     }
 
@@ -58,6 +59,7 @@ class DTOWorkmanCreated extends BaseDTO
             'firstName' => 'required|string',
             'lastName' => 'required|string',
             'middleName' => $this->noMiddleName ? 'nullable' : 'required|string',
+            'noMiddleName' => 'required|boolean'
         ];
     }
 }
