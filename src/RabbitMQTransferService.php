@@ -26,7 +26,7 @@ class RabbitMQTransferService
     /**
      * @param BaseRequest $request
      */
-    final public function submit(BaseRequest $request)
+    public function submit(BaseRequest $request)
     {
         foreach ($request->getQueues() as $queue) {
             dispatch(new RabbitMQTransferJob($request))
@@ -40,7 +40,7 @@ class RabbitMQTransferService
      * @param string $json
      * @throws Exception
      */
-    final public function receive(string $signature, string $json)
+    public function receive(string $signature, string $json)
     {
         $request = $this->getRequest($signature, $json);
         event($request->event);
@@ -53,7 +53,7 @@ class RabbitMQTransferService
      * @return BaseRequest
      * @noinspection PhpUndefinedMethodInspection
      */
-    private function getRequest(string $signature, string $json): BaseRequest
+    protected function getRequest(string $signature, string $json): BaseRequest
     {
         if (!array_key_exists($signature, $this->map())) {
             throw new Exception('Incorrect signature');
@@ -73,7 +73,7 @@ class RabbitMQTransferService
     /**
      * @return string[]
      */
-    private function map(): array
+    protected function map(): array
     {
         return [
             FNSNotificationCreatedRequest::$signature => FNSNotificationCreatedRequest::class,

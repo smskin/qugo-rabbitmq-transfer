@@ -20,6 +20,12 @@ trait QueueTestTrait
         unserialize(json_decode($job->payload)->data->command)->handle();
     }
 
+    protected function deleteJob()
+    {
+        $job = DB::table('jobs')->first();
+        DB::table('jobs')->delete($job->id);
+    }
+
     protected function runJobAndDelete()
     {
         $job = DB::table('jobs')->first();

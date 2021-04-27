@@ -48,9 +48,9 @@ class DTOWorkmanUpdatedStatus extends BaseDTO
         parent::__construct((object)[
             'inn' => $inn,
             'status' => $status,
+            'accessTaxPayment' => $accessTaxPayment,
             'externalDescription' => $externalDescription,
             'externalDate' => $externalDate,
-            'accessTaxPayment' => $accessTaxPayment
         ]);
     }
 
