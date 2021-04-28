@@ -45,9 +45,9 @@ abstract class BaseDTO
      * @param string $json
      * @return object
      */
-    final public static function unSerialize(string $json): object
+    final public static function unSerialize(string $json): array
     {
-        return json_decode($json);
+        return json_decode($json, true);
     }
 
     /**
