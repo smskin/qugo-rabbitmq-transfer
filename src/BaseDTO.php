@@ -61,6 +61,8 @@ abstract class BaseDTO
      */
     private function getValidator(object $data): Validator
     {
-        return ValidatorFacade::make((array) $data, $this->rules());
+        $data = json_decode(json_encode($data), true);
+
+        return ValidatorFacade::make($data, $this->rules());
     }
 }
