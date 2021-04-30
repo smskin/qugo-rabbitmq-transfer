@@ -45,9 +45,9 @@ abstract class BaseDTO
      * @param string $json
      * @return object
      */
-    final public static function unSerialize(string $json): array
+    final public static function unSerialize(string $json): object
     {
-        return json_decode($json, true);
+        return json_decode($json);
     }
 
     /**
@@ -61,6 +61,8 @@ abstract class BaseDTO
      */
     private function getValidator(object $data): Validator
     {
-        return ValidatorFacade::make((array) $data, $this->rules());
+        $data = json_decode(json_encode($data), true);
+
+        return ValidatorFacade::make($data, $this->rules());
     }
 }
