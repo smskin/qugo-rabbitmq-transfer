@@ -14,16 +14,9 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
  */
 class DTOReceiptCreated extends BaseDTO
 {
-    /**
-     * Available incomeTypes
-     *
-     * @var string[]
-     */
-    private $incomeTypes = [
-        'FROM_INDIVIDUAL',
-        'FROM_LEGAL_ENTITY',
-        'FROM_FOREIGN_AGENCY'
-    ];
+    const RECEIPT_INCOME_TYPE_FROM_INDIVIDUAL     = 'FROM_INDIVIDUAL';
+    const RECEIPT_INCOME_TYPE_FROM_LEGAL_ENTITY   = 'FROM_LEGAL_ENTITY';
+    const RECEIPT_INCOME_TYPE_FROM_FOREIGN_AGENCY = 'FROM_FOREIGN_AGENCY';
 
     /**
      * DTOReceiptCreated constructor.
@@ -45,16 +38,15 @@ class DTOReceiptCreated extends BaseDTO
         array $services,
         string $incomeType,
         string $date
-    )
-    {
+    ) {
         parent::__construct((object)[
-            'id' => $id,
-            'workmanINN' => $workmanINN,
-            'customerINN' => $customerINN,
+            'id'           => $id,
+            'workmanINN'   => $workmanINN,
+            'customerINN'  => $customerINN,
             'customerName' => $customerName,
-            'services' => $services,
-            'incomeType' => $incomeType,
-            'date' => $date,
+            'services'     => $services,
+            'incomeType'   => $incomeType,
+            'date'         => $date,
         ]);
     }
 
@@ -64,22 +56,26 @@ class DTOReceiptCreated extends BaseDTO
     public function rules(): array
     {
         return [
-            'id' => 'required|integer',
-            'workmanINN' => [
+            'id'                  => 'required|integer',
+            'workmanINN'          => [
                 'required',
-                new InnFlRule()
+                new InnFlRule(),
             ],
-            'customerINN' => [
+            'customerINN'         => [
                 'required',
-                new InnRule()
+                new InnRule(),
             ],
-            'customerName' => 'required|string',
-            'services' => 'required|array',
-            'services.*.name' => 'required|string',
-            'services.*.amount' => 'required|numeric',
+            'customerName'        => 'required|string',
+            'services'            => 'required|array',
+            'services.*.name'     => 'required|string',
+            'services.*.amount'   => 'required|numeric',
             'services.*.quantity' => 'required|integer',
-            'incomeType' => 'required|in:'.implode(',', $this->incomeTypes),
-            'date' => 'required|date'
+            'incomeType'          => 'required|in:' . implode(',', [
+                    self::RECEIPT_INCOME_TYPE_FROM_INDIVIDUAL,
+                    self::RECEIPT_INCOME_TYPE_FROM_LEGAL_ENTITY,
+                    self::RECEIPT_INCOME_TYPE_FROM_FOREIGN_AGENCY,
+                ]),
+            'date'                => 'required|date',
         ];
     }
 }

@@ -13,19 +13,14 @@ use Qugo\RabbitMQTransfer\Rules\InnFlRule;
  */
 class DTOWorkmanUpdatedStatus extends BaseDTO
 {
-    /**
-     * @var string[]
-     */
-    private $statuses = [
-        'CHECKING',
-        'UNKNOWN',
-        'NOTSE',
-        'NOACCESS',
-        'LIMITED',
-        'VALIDATION_ERROR',
-        'OK',
-        'DAILY_CHECKING',
-    ];
+    const WORKMAN_STATUS_CHECKING         = 'CHECKING';
+    const WORKMAN_STATUS_UNKNOWN          = 'UNKNOWN';
+    const WORKMAN_STATUS_NOTSE            = 'NOTSE';
+    const WORKMAN_STATUS_NO_ACCESS        = 'NOACCESS';
+    const WORKMAN_STATUS_LIMITED          = 'LIMITED';
+    const WORKMAN_STATUS_VALIDATION_ERROR = 'VALIDATION_ERROR';
+    const WORKMAN_STATUS_OK               = 'CHECKING';
+    const WORKMAN_STATUS_DAILY_CHECKING   = 'CHECKING';
 
     /**
      * DTOWorkmanUpdateStatus constructor.
@@ -43,14 +38,13 @@ class DTOWorkmanUpdatedStatus extends BaseDTO
         bool $accessTaxPayment = false,
         string $externalDescription = null,
         string $externalDate = null
-    )
-    {
+    ) {
         parent::__construct((object)[
-            'inn' => $inn,
-            'status' => $status,
-            'accessTaxPayment' => $accessTaxPayment,
+            'inn'                 => $inn,
+            'status'              => $status,
+            'accessTaxPayment'    => $accessTaxPayment,
             'externalDescription' => $externalDescription,
-            'externalDate' => $externalDate,
+            'externalDate'        => $externalDate,
         ]);
     }
 
@@ -60,14 +54,23 @@ class DTOWorkmanUpdatedStatus extends BaseDTO
     public function rules(): array
     {
         return [
-            'inn'                  => [
+            'inn'                 => [
                 'required',
-                new InnFlRule()
+                new InnFlRule(),
             ],
-            'status'               => 'required|in:'.implode(',', $this->statuses),
+            'status'              => 'required|in:' . implode(',', [
+                    self::WORKMAN_STATUS_CHECKING,
+                    self::WORKMAN_STATUS_UNKNOWN,
+                    self::WORKMAN_STATUS_NOTSE,
+                    self::WORKMAN_STATUS_NO_ACCESS,
+                    self::WORKMAN_STATUS_LIMITED,
+                    self::WORKMAN_STATUS_VALIDATION_ERROR,
+                    self::WORKMAN_STATUS_OK,
+                    self::WORKMAN_STATUS_DAILY_CHECKING,
+                ]),
             'externalDescription' => 'nullable|string',
             'externalDate'        => 'nullable|date',
-            'accessTaxPayment'   => 'required|boolean',
+            'accessTaxPayment'    => 'required|boolean',
         ];
     }
 }
