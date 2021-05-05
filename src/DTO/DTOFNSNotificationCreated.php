@@ -39,9 +39,9 @@ class DTOFNSNotificationCreated extends BaseDTO
         parent::__construct((object) [
             'externalID' => $externalID,
             'inn' => $inn,
-            'createdAt' => $createdAt,
             'title' => $title,
             'text' => $text,
+            'createdAt' => $createdAt,
             'isRead' => $isRead,
             'readAt' => $readAt
         ]);
