@@ -10,6 +10,7 @@ use Qugo\RabbitMQTransfer\Requests\ReceiptGeneratedRequest;
 use Qugo\RabbitMQTransfer\Requests\WorkmanCreatedRequest;
 use Exception;
 use Qugo\RabbitMQTransfer\Requests\WorkmanResetStatusRequest;
+use Qugo\RabbitMQTransfer\Requests\WorkmanTaxRequestCreate;
 use Qugo\RabbitMQTransfer\Requests\WorkmanUpdatedStatusRequest;
 use ReflectionClass;
 
@@ -82,7 +83,8 @@ class RabbitMQTransferService
             ReceiptGeneratedRequest::$signature => ReceiptGeneratedRequest::class,
             WorkmanCreatedRequest::$signature => WorkmanCreatedRequest::class,
             WorkmanResetStatusRequest::$signature => WorkmanResetStatusRequest::class,
-            WorkmanUpdatedStatusRequest::$signature => WorkmanUpdatedStatusRequest::class
+            WorkmanUpdatedStatusRequest::$signature => WorkmanUpdatedStatusRequest::class,
+            WorkmanTaxRequestCreate::$signature => WorkmanTaxRequestCreate::class
         ];
     }
 }
