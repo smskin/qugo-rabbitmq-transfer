@@ -19,7 +19,7 @@ class DTOWorkmanUpdatedStatus extends BaseDTO
     const WORKMAN_STATUS_NO_ACCESS        = 'NOACCESS';
     const WORKMAN_STATUS_LIMITED          = 'LIMITED';
     const WORKMAN_STATUS_VALIDATION_ERROR = 'VALIDATION_ERROR';
-    const WORKMAN_STATUS_OK               = 'CHECKING';
+    const WORKMAN_STATUS_OK               = 'OK';
     const WORKMAN_STATUS_DAILY_CHECKING   = 'CHECKING';
 
     /**
