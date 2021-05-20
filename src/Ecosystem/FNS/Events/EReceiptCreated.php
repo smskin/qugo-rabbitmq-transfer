@@ -1,16 +1,15 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Events;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Events;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
-use Qugo\RabbitMQTransfer\DTO\DTOReceiptGenerated;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEReceiptCreated;
 
 /**
- * Class EReceiptGenerated
- *
- * @package Qugo\RabbitMQTransfer\Events
+ * Class EReceiptCreated
+ * @package Qugo\RabbitMQTransfer\Ecosystem\FNS\Events
  */
-class EReceiptGenerated extends BaseEvent
+class EReceiptCreated extends BaseEvent
 {
     /**
      * @var string
@@ -41,12 +40,13 @@ class EReceiptGenerated extends BaseEvent
      * @var string
      */
     public $externalError;
+
     /**
      * EReceiptGenerated constructor.
      *
-     * @param DTOReceiptGenerated $dto
+     * @param DTOEReceiptCreated $dto
      */
-    public function __construct(DTOReceiptGenerated $dto)
+    public function __construct(DTOEReceiptCreated $dto)
     {
         parent::__construct($dto);
 

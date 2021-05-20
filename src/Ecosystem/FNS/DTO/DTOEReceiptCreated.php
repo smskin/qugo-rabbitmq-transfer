@@ -1,6 +1,6 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\DTO;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO;
 
 use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
@@ -10,7 +10,7 @@ use Qugo\RabbitMQTransfer\BaseDTO;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOReceiptGenerated extends BaseDTO
+class DTOEReceiptCreated extends BaseDTO
 {
     const RECEIPT_STATE_ERROR            = 'ERROR';
     const RECEIPT_STATE_PENDING          = 'PENDING';

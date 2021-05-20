@@ -1,16 +1,15 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Events;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Events;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanUpdatedStatus;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeUpdated;
 
 /**
- * Class EWorkmanUpdatedStatus
- *
- * @package Qugo\RabbitMQTransfer\Events
+ * Class EEmployeeUpdated
+ * @package Qugo\RabbitMQTransfer\Ecosystem\FNS\Events
  */
-class EWorkmanUpdatedStatus extends BaseEvent
+class EEmployeeUpdated extends BaseEvent
 {
     /**
      * @var string
@@ -40,9 +39,9 @@ class EWorkmanUpdatedStatus extends BaseEvent
     /**
      * EWorkmanUpdatedStatus constructor.
      *
-     * @param DTOWorkmanUpdatedStatus $dto
+     * @param DTOEEmployeeUpdated $dto
      */
-    public function __construct(DTOWorkmanUpdatedStatus $dto)
+    public function __construct(DTOEEmployeeUpdated $dto)
     {
         parent::__construct($dto);
         $this->inn = $dto->data['inn'];

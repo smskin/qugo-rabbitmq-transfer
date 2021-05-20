@@ -1,6 +1,6 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\DTO;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO;
 
 use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
@@ -11,7 +11,7 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOFNSNotificationCreated extends BaseDTO
+class DTOEFNSNotificationCreated extends BaseDTO
 {
 
     /**
@@ -34,8 +34,7 @@ class DTOFNSNotificationCreated extends BaseDTO
         string $createdAt,
         bool $isRead,
         ?string $readAt
-    )
-    {
+    ) {
         parent::__construct((object) [
             'externalID' => $externalID,
             'inn' => $inn,

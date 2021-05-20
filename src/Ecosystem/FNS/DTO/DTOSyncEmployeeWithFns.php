@@ -1,6 +1,6 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\DTO;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO;
 
 use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
@@ -10,7 +10,7 @@ use Qugo\RabbitMQTransfer\BaseDTO;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOWorkmanResetStatus extends BaseDTO
+class DTOSyncEmployeeWithFns extends BaseDTO
 {
     /**
      * DTOWorkmanToUnknown constructor.

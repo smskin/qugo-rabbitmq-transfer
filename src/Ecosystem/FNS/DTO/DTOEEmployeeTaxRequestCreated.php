@@ -1,6 +1,6 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\DTO;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO;
 
 use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
@@ -11,7 +11,7 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOWorkmanTaxRequestCreate extends BaseDTO
+class DTOEEmployeeTaxRequestCreated extends BaseDTO
 {
     const WORKMAN_TAX_REQUEST_DOCUMENT_TAX     = 'TAX';
     const WORKMAN_TAX_REQUEST_DOCUMENT_DEBT    = 'DEBT';
@@ -29,8 +29,7 @@ class DTOWorkmanTaxRequestCreate extends BaseDTO
         string $inn,
         string $requestDate,
         array $documents
-    )
-    {
+    ) {
         parent::__construct((object)[
             'inn'         => $inn,
             'requestDate' => $requestDate,

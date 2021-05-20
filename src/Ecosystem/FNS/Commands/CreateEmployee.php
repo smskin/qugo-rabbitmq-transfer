@@ -1,16 +1,15 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Events;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Commands;
 
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanCreated;
-use Qugo\RabbitMQTransfer\BaseEvent;
+use Qugo\RabbitMQTransfer\BaseCommand;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOCreateEmployee;
 
 /**
- * Class EWorkmanCreated
- *
- * @package Qugo\RabbitMQTransfer\Events
+ * Class CreateEmployee
+ * @package Qugo\RabbitMQTransfer\Ecosystem\FNS\Commands
  */
-class EWorkmanCreated extends BaseEvent
+class CreateEmployee extends BaseCommand
 {
     /**
      * @var string
@@ -50,9 +49,9 @@ class EWorkmanCreated extends BaseEvent
     /**
      * EWorkmanCreated constructor.
      *
-     * @param DTOWorkmanCreated $dto
+     * @param DTOCreateEmployee $dto
      */
-    public function __construct(DTOWorkmanCreated $dto)
+    public function __construct(DTOCreateEmployee $dto)
     {
         parent::__construct($dto);
         $this->inn = $dto->data['inn'];

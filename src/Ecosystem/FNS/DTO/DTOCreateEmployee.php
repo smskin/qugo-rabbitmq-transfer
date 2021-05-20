@@ -1,6 +1,6 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\DTO;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO;
 
 use Qugo\RabbitMQTransfer\BaseDTO;
 use Illuminate\Validation\ValidationException;
@@ -11,7 +11,7 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOWorkmanCreated extends BaseDTO
+class DTOCreateEmployee extends BaseDTO
 {
     /**
      * @var bool

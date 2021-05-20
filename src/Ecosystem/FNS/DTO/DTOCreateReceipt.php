@@ -1,6 +1,6 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\DTO;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO;
 
 use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
@@ -12,7 +12,7 @@ use Qugo\RabbitMQTransfer\Rules\InnRule;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOReceiptCreated extends BaseDTO
+class DTOCreateReceipt extends BaseDTO
 {
     const RECEIPT_INCOME_TYPE_FROM_INDIVIDUAL     = 'FROM_INDIVIDUAL';
     const RECEIPT_INCOME_TYPE_FROM_LEGAL_ENTITY   = 'FROM_LEGAL_ENTITY';

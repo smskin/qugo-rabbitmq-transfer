@@ -1,6 +1,6 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\DTO;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO;
 
 use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
@@ -11,7 +11,7 @@ use Qugo\RabbitMQTransfer\Rules\InnFlRule;
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOWorkmanUpdatedStatus extends BaseDTO
+class DTOEEmployeeUpdated extends BaseDTO
 {
     const WORKMAN_STATUS_CHECKING         = 'CHECKING';
     const WORKMAN_STATUS_UNKNOWN          = 'UNKNOWN';

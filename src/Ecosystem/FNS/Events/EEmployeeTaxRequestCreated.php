@@ -1,16 +1,15 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Events;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Events;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanTaxRequestCreate;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeTaxRequestCreated;
 
 /**
  * Class EWorkmanTaxRequestCreate
- *
  * @package Qugo\RabbitMQTransfer\Events
  */
-class EWorkmanTaxRequestCreate extends BaseEvent
+class EEmployeeTaxRequestCreated extends BaseEvent
 {
     /**
      * @var string
@@ -30,9 +29,9 @@ class EWorkmanTaxRequestCreate extends BaseEvent
     /**
      * EWorkmanTaxRequestCreate constructor.
      *
-     * @param DTOWorkmanTaxRequestCreate $dto
+     * @param DTOEEmployeeTaxRequestCreated $dto
      */
-    public function __construct(DTOWorkmanTaxRequestCreate $dto)
+    public function __construct(DTOEEmployeeTaxRequestCreated $dto)
     {
         $this->inn = $dto->data['inn'];
         $this->requestDate = $dto->data['requestDate'];
