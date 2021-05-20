@@ -1,37 +1,36 @@
 <?php
 
-
-namespace Qugo\RabbitMQTransfer\Requests;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanResetStatus;
-use Qugo\RabbitMQTransfer\Events\EWorkmanResetStatus;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Commands\CreateReceipt;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOCreateReceipt;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
 /**
- * Class WorkmanResetStatusRequest
+ * Class ReceiptCreatedRequest
  *
  * @package Qugo\RabbitMQTransfer\Requests
  */
-class WorkmanResetStatusRequest extends BaseRequest
+class CreateReceiptRequest extends BaseRequest
 {
     /**
      * @var string
      */
-    public static $signature = 'workman.status.reset';
+    public static $signature = 'receipt.create';
 
     /**
-     * @var DTOWorkmanResetStatus
+     * @var DTOCreateReceipt
      */
     public $dto;
 
     /**
-     * WorkmanToUnknownRequest constructor.
+     * ReceiptCreatedRequest constructor.
      *
-     * @param DTOWorkmanResetStatus $dto
+     * @param DTOCreateReceipt $dto
      */
-    public function __construct(DTOWorkmanResetStatus $dto)
+    public function __construct(DTOCreateReceipt $dto)
     {
         parent::__construct($dto);
     }
@@ -51,7 +50,7 @@ class WorkmanResetStatusRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EWorkmanResetStatus($this->dto);
+        return new CreateReceipt($this->dto);
     }
 
     /**
@@ -59,6 +58,6 @@ class WorkmanResetStatusRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOWorkmanResetStatus::class;
+        return DTOCreateReceipt::class;
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Requests;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanUpdatedStatus;
-use Qugo\RabbitMQTransfer\Events\EWorkmanUpdatedStatus;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeUpdated;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EEmployeeUpdated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
 /**
@@ -13,24 +13,24 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
  *
  * @package Qugo\RabbitMQTransfer\Requests
  */
-class WorkmanUpdatedStatusRequest extends BaseRequest
+class EmployeeUpdatedRequest extends BaseRequest
 {
     /**
      * @var string
      */
-    public static $signature = 'workman.status.updated';
+    public static $signature = 'employee.updated';
 
     /**
-     * @var DTOWorkmanUpdatedStatus
+     * @var DTOEEmployeeUpdated
      */
     public $dto;
 
     /**
      * WorkmanUpdatedStatusRequest constructor.
      *
-     * @param DTOWorkmanUpdatedStatus $dto
+     * @param DTOEEmployeeUpdated $dto
      */
-    public function __construct(DTOWorkmanUpdatedStatus $dto)
+    public function __construct(DTOEEmployeeUpdated $dto)
     {
         parent::__construct($dto);
     }
@@ -50,7 +50,7 @@ class WorkmanUpdatedStatusRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EWorkmanUpdatedStatus($this->dto);
+        return new EEmployeeUpdated($this->dto);
     }
 
     /**
@@ -58,6 +58,6 @@ class WorkmanUpdatedStatusRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOWorkmanUpdatedStatus::class;
+        return DTOEEmployeeUpdated::class;
     }
 }

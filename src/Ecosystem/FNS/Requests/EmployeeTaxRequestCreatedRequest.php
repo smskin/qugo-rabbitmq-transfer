@@ -1,36 +1,36 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Requests;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOFNSNotificationCreated;
-use Qugo\RabbitMQTransfer\Events\EFNSNotificationCreated;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeTaxRequestCreated;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EEmployeeTaxRequestCreated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
 /**
- * Class FNSNotificationCreatedRequest
+ * Class WorkmanTaxRequestCreate
  *
  * @package Qugo\RabbitMQTransfer\Requests
  */
-class FNSNotificationCreatedRequest extends BaseRequest
+class EmployeeTaxRequestCreatedRequest extends BaseRequest
 {
     /**
      * @var string
      */
-    public static $signature = 'fnsnotice.created';
+    public static $signature = 'employee.taxRequest.created';
 
     /**
-     * @var DTOFNSNotificationCreated
+     * @var DTOEEmployeeTaxRequestCreated
      */
     public $dto;
 
     /**
-     * FNSNotificationCreatedRequest constructor.
+     * WorkmanTaxRequestCreate constructor.
      *
-     * @param DTOFNSNotificationCreated $dto
+     * @param DTOEEmployeeTaxRequestCreated $dto
      */
-    public function __construct(DTOFNSNotificationCreated $dto)
+    public function __construct(DTOEEmployeeTaxRequestCreated $dto)
     {
         parent::__construct($dto);
     }
@@ -50,7 +50,7 @@ class FNSNotificationCreatedRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EFNSNotificationCreated($this->dto);
+        return new EEmployeeTaxRequestCreated($this->dto);
     }
 
     /**
@@ -58,6 +58,6 @@ class FNSNotificationCreatedRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOFNSNotificationCreated::class;
+        return DTOEEmployeeTaxRequestCreated::class;
     }
 }

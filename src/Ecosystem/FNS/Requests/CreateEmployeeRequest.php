@@ -1,11 +1,11 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Requests;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOWorkmanCreated;
-use Qugo\RabbitMQTransfer\Events\EWorkmanCreated;
 use Qugo\RabbitMQTransfer\BaseEvent;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Commands\CreateEmployee;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOCreateEmployee;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
 /**
@@ -13,24 +13,24 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
  *
  * @package Qugo\RabbitMQTransfer\Requests
  */
-class WorkmanCreatedRequest extends BaseRequest
+class CreateEmployeeRequest extends BaseRequest
 {
     /**
      * @var string
      */
-    public static $signature = 'workman.created';
+    public static $signature = 'employee.create';
 
     /**
-     * @var DTOWorkmanCreated
+     * @var DTOCreateEmployee
      */
     public $dto;
 
     /**
      * WorkmanCreatedRequest constructor.
      *
-     * @param DTOWorkmanCreated $dto
+     * @param DTOCreateEmployee $dto
      */
-    public function __construct(DTOWorkmanCreated $dto)
+    public function __construct(DTOCreateEmployee $dto)
     {
         parent::__construct($dto);
     }
@@ -40,7 +40,7 @@ class WorkmanCreatedRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOWorkmanCreated::class;
+        return DTOCreateEmployee::class;
     }
 
     /**
@@ -58,6 +58,6 @@ class WorkmanCreatedRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EWorkmanCreated($this->dto);
+        return new CreateEmployee($this->dto);
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace Qugo\RabbitMQTransfer\Requests;
+namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\DTO\DTOFNSNotificationRead;
-use Qugo\RabbitMQTransfer\Events\EFNSNotificationRead;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Commands\MarkFNSNotificationAsRead;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOMarkFNSNotificationAsRead;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
 /**
@@ -13,7 +13,7 @@ use Qugo\RabbitMQTransfer\RabbitMQTransferService;
  *
  * @package Qugo\RabbitMQTransfer\Requests
  */
-class FNSNotificationReadRequest extends BaseRequest
+class MarkFNSNotificationAsReadRequest extends BaseRequest
 {
     /**
      * @var string
@@ -21,16 +21,16 @@ class FNSNotificationReadRequest extends BaseRequest
     public static $signature = 'fnsnotice.read';
 
     /**
-     * @var DTOFNSNotificationRead
+     * @var DTOMarkFNSNotificationAsRead
      */
     public $dto;
 
     /**
      * FNSNotificationRead constructor.
      *
-     * @param DTOFNSNotificationRead $dto
+     * @param DTOMarkFNSNotificationAsRead $dto
      */
-    public function __construct(DTOFNSNotificationRead $dto)
+    public function __construct(DTOMarkFNSNotificationAsRead $dto)
     {
         parent::__construct($dto);
     }
@@ -50,7 +50,7 @@ class FNSNotificationReadRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EFNSNotificationRead($this->dto);
+        return new MarkFNSNotificationAsRead($this->dto);
     }
 
     /**
@@ -58,6 +58,6 @@ class FNSNotificationReadRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOFNSNotificationRead::class;
+        return DTOMarkFNSNotificationAsRead::class;
     }
 }

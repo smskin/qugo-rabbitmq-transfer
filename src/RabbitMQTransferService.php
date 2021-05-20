@@ -2,16 +2,16 @@
 
 namespace Qugo\RabbitMQTransfer;
 
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\CreateEmployeeRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\CreateReceiptRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\EmployeeTaxRequestCreatedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\EmployeeUpdatedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\FNSNotificationCreatedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\MarkFNSNotificationAsReadRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\ReceiptCreatedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\SyncEmployeeWithFnsRequest;
 use Qugo\RabbitMQTransfer\Jobs\RabbitMQTransferJob;
-use Qugo\RabbitMQTransfer\Requests\FNSNotificationCreatedRequest;
-use Qugo\RabbitMQTransfer\Requests\FNSNotificationReadRequest;
-use Qugo\RabbitMQTransfer\Requests\ReceiptCreatedRequest;
-use Qugo\RabbitMQTransfer\Requests\ReceiptGeneratedRequest;
-use Qugo\RabbitMQTransfer\Requests\WorkmanCreatedRequest;
 use Exception;
-use Qugo\RabbitMQTransfer\Requests\WorkmanResetStatusRequest;
-use Qugo\RabbitMQTransfer\Requests\WorkmanTaxRequestCreate;
-use Qugo\RabbitMQTransfer\Requests\WorkmanUpdatedStatusRequest;
 use ReflectionClass;
 
 /**
@@ -77,14 +77,14 @@ class RabbitMQTransferService
     protected function map(): array
     {
         return [
-            FNSNotificationCreatedRequest::$signature => FNSNotificationCreatedRequest::class,
-            FNSNotificationReadRequest::$signature => FNSNotificationReadRequest::class,
             ReceiptCreatedRequest::$signature => ReceiptCreatedRequest::class,
-            ReceiptGeneratedRequest::$signature => ReceiptGeneratedRequest::class,
-            WorkmanCreatedRequest::$signature => WorkmanCreatedRequest::class,
-            WorkmanResetStatusRequest::$signature => WorkmanResetStatusRequest::class,
-            WorkmanUpdatedStatusRequest::$signature => WorkmanUpdatedStatusRequest::class,
-            WorkmanTaxRequestCreate::$signature => WorkmanTaxRequestCreate::class
+            CreateReceiptRequest::$signature => CreateReceiptRequest::class,
+            CreateEmployeeRequest::$signature => CreateEmployeeRequest::class,
+            EmployeeUpdatedRequest::$signature => EmployeeUpdatedRequest::class,
+            SyncEmployeeWithFnsRequest::$signature => SyncEmployeeWithFnsRequest::class,
+            FNSNotificationCreatedRequest::$signature => FNSNotificationCreatedRequest::class,
+            MarkFNSNotificationAsReadRequest::$signature => MarkFNSNotificationAsReadRequest::class,
+            EmployeeTaxRequestCreatedRequest::$signature => EmployeeTaxRequestCreatedRequest::class
         ];
     }
 }
