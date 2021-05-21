@@ -25,9 +25,9 @@ class RabbitMQTransferService
     const QUEUE_TO_SMZ = 'to_smz';
 
     /**
-     * @param BaseRequest $request
+     * @param BaseEvent $request
      */
-    public function submit(BaseRequest $request)
+    public function submit($request)
     {
         foreach ($request->getQueues() as $queue) {
             dispatch(new RabbitMQTransferJob($request))
