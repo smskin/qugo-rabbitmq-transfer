@@ -47,6 +47,16 @@ abstract class BaseRequest
     abstract public function getQueues(): array;
 
     /**
+     * @param array $queues
+     * @return $this
+     */
+    public function setQueues(array $queues): BaseRequest
+    {
+        $this->queues = $queues;
+        return $this;
+    }
+
+    /**
      * @return BaseEvent
      */
     abstract public function getEvent(): BaseEvent;
