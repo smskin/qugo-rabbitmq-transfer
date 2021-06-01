@@ -62,10 +62,10 @@ abstract class BaseRequest
     }
 
     /**
-     * @param array $sender
+     * @param string $sender
      * @return $this
      */
-    public function setSender(array $sender): BaseRequest
+    public function setSender(string $sender): BaseRequest
     {
         $this->sender = $sender;
         return $this;
