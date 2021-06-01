@@ -31,19 +31,19 @@ class RabbitMQTransferService
     public function submit(BaseRequest $request)
     {
         foreach ($request->getQueues() as $queue) {
-            dispatch(new RabbitMQTransferJob($request, $queue))
+            dispatch(new RabbitMQTransferJob($request, $request->sender))
                 ->onQueue($queue)
                 ->onConnection(config('qugo-rabbit-transfer.connection'));
         }
     }
 
     /**
-     * @param string $signature
-     * @param string $json
-     * @param string $senderQueue
+     * @param string      $signature
+     * @param string      $json
+     * @param string|null $senderQueue
      * @throws Exception
      */
-    public function receive(string $signature, string $json, string $senderQueue)
+    public function receive(string $signature, string $json, ?string $senderQueue)
     {
         $request = $this->getRequest($signature, $json);
         event($request->event->setSenderQueue($senderQueue));

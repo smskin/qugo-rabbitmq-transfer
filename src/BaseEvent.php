@@ -24,10 +24,10 @@ abstract class BaseEvent
     }
 
     /**
-     * @param string $queue
+     * @param string|null $queue
      * @return $this
      */
-    public function setSenderQueue(string $queue): BaseEvent
+    public function setSenderQueue(?string $queue): BaseEvent
     {
         $this->senderQueue = $queue;
         return $this;

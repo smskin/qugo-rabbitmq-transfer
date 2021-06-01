@@ -39,9 +39,9 @@ class RabbitMQTransferJob implements ShouldQueue
      * RabbitMQTransferJob constructor.
      *
      * @param BaseRequest $request
-     * @param string      $senderQueue
+     * @param string|null $senderQueue
      */
-    public function __construct(BaseRequest $request, string $senderQueue)
+    public function __construct(BaseRequest $request, ?string $senderQueue)
     {
         $this->data = $request->dto->serialize();
         $this->signature = $request::$signature;
