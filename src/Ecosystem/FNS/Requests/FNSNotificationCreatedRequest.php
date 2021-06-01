@@ -8,6 +8,7 @@ use Qugo\RabbitMQTransfer\BaseRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEFNSNotificationCreated;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EFNSNotificationCreated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class FNSNotificationCreatedRequest

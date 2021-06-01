@@ -8,6 +8,7 @@ use Qugo\RabbitMQTransfer\BaseRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEReceiptCreated;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EReceiptCreated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class ReceiptGeneratedRequest

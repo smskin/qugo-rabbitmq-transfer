@@ -8,6 +8,7 @@ use Qugo\RabbitMQTransfer\BaseRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeTaxRequestCreated;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EEmployeeTaxRequestCreated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class WorkmanTaxRequestCreate
@@ -41,7 +42,8 @@ class EmployeeTaxRequestCreatedRequest extends BaseRequest
      */
     public function getQueues(): array
     {
-        return App::get(SubscriberService::class)->getQueues();
+        return App::get(SubscriberService::class)
+            ->getQueues();
     }
 
     /**

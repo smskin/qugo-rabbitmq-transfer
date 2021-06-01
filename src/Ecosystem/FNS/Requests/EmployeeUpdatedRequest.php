@@ -8,6 +8,7 @@ use Qugo\RabbitMQTransfer\BaseRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeUpdated;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EEmployeeUpdated;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
+use Illuminate\Support\Facades\App;
 
 /**
  * Class WorkmanUpdatedStatusRequest
