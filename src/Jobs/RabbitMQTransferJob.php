@@ -31,14 +31,21 @@ class RabbitMQTransferJob implements ShouldQueue
     public $signature;
 
     /**
+     * @var string
+     */
+    public $senderQueue;
+
+    /**
      * RabbitMQTransferJob constructor.
      *
      * @param BaseRequest $request
+     * @param string|null $senderQueue
      */
-    public function __construct(BaseRequest $request)
+    public function __construct(BaseRequest $request, ?string $senderQueue)
     {
         $this->data = $request->dto->serialize();
         $this->signature = $request::$signature;
+        $this->senderQueue = $senderQueue;
     }
 
     /**
@@ -46,7 +53,12 @@ class RabbitMQTransferJob implements ShouldQueue
      */
     public function handle()
     {
-        $this->getTransferService()->receive($this->signature, $this->data);
+        $this->getTransferService()
+             ->receive(
+                 $this->signature,
+                 $this->data,
+                 $this->senderQueue
+             );
     }
 
     /**
