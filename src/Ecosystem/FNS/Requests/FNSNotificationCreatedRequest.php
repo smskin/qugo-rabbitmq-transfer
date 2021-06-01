@@ -2,6 +2,7 @@
 
 namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
+use App\Modules\Transfer\Services\SubscriberService;
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEFNSNotificationCreated;
@@ -40,9 +41,7 @@ class FNSNotificationCreatedRequest extends BaseRequest
      */
     public function getQueues(): array
     {
-        return [
-            RabbitMQTransferService::QUEUE_TO_QUGO
-        ];
+        return App::get(SubscriberService::class)->getQueues();
     }
 
     /**
