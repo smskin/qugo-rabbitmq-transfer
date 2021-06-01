@@ -30,7 +30,7 @@ class RabbitMQTransferService
      */
     public function submit(BaseRequest $request)
     {
-        foreach ($request->getQueues() as $queue) {
+        foreach ($request->queues as $queue) {
             dispatch(new RabbitMQTransferJob($request, $request->sender))
                 ->onQueue($queue)
                 ->onConnection(config('qugo-rabbit-transfer.connection'));
