@@ -3,13 +3,13 @@
 namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Events;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
-use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEReceiptCreated;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEReceiptFailed;
 
 /**
- * Class EReceiptCreated
+ * Class EReceiptFailed
  * @package Qugo\RabbitMQTransfer\Ecosystem\FNS\Events
  */
-class EReceiptCreated extends BaseEvent
+class EReceiptFailed extends BaseEvent
 {
     /**
      * @var string
@@ -19,30 +19,24 @@ class EReceiptCreated extends BaseEvent
     /**
      * @var string
      */
-    public $externalURL;
-
-    /**
-     * @var string
-     */
-    public $externalIDent;
-
-    /**
-     * @var string
-     */
     public $externalRequestTime;
+
+    /**
+     * @var string
+     */
+    public $externalError;
 
     /**
      * EReceiptGenerated constructor.
      *
-     * @param DTOEReceiptCreated $dto
+     * @param DTOEReceiptFailed $dto
      */
-    public function __construct(DTOEReceiptCreated $dto)
+    public function __construct(DTOEReceiptFailed $dto)
     {
         parent::__construct($dto);
 
         $this->id = $dto->data['id'];
-        $this->externalURL = $dto->data['externalURL'];
-        $this->externalIDent = $dto->data['externalIDent'];
         $this->externalRequestTime = $dto->data['externalRequestTime'];
+        $this->externalError = $dto->data['externalError'];
     }
 }

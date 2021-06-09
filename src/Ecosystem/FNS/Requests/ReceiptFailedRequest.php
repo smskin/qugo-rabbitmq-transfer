@@ -4,33 +4,32 @@ namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEReceiptCreated;
-use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EReceiptCreated;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEReceiptFailed;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EReceiptFailed;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
 /**
- * Class ReceiptCreatedRequest
- *
- * @package Qugo\RabbitMQTransfer\Requests
+ * Class ReceiptFailedRequest
+ * @package Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests
  */
-class ReceiptCreatedRequest extends BaseRequest
+class ReceiptFailedRequest extends BaseRequest
 {
     /**
      * @var string
      */
-    public static $signature = 'receipt.created';
+    public static $signature = 'receipt.failed';
 
     /**
-     * @var DTOEReceiptCreated
+     * @var DTOEReceiptFailed
      */
     public $dto;
 
     /**
      * ReceiptGeneratedRequest constructor.
      *
-     * @param DTOEReceiptCreated $dto
+     * @param DTOEReceiptFailed $dto
      */
-    public function __construct(DTOEReceiptCreated $dto)
+    public function __construct(DTOEReceiptFailed $dto)
     {
         parent::__construct($dto);
     }
@@ -50,7 +49,7 @@ class ReceiptCreatedRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EReceiptCreated($this->dto);
+        return new EReceiptFailed($this->dto);
     }
 
     /**
@@ -58,6 +57,6 @@ class ReceiptCreatedRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOEReceiptCreated::class;
+        return DTOEReceiptFailed::class;
     }
 }

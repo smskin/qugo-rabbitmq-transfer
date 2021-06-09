@@ -6,32 +6,29 @@ use Illuminate\Validation\ValidationException;
 use Qugo\RabbitMQTransfer\BaseDTO;
 
 /**
- * Class DTOEReceiptCreated
+ * Class DTOEReceiptFailed
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOEReceiptCreated extends BaseDTO
+class DTOEReceiptFailed extends BaseDTO
 {
     /**
      * DTOReceiptGenerated constructor.
      *
      * @param int $id
-     * @param string|null $externalURL
-     * @param string|null $externalIDent
      * @param string|null $externalRequestTime
+     * @param string $externalError
      * @throws ValidationException
      */
     public function __construct(
         int $id,
-        string $externalURL,
-        string $externalIDent,
-        ?string $externalRequestTime
+        ?string $externalRequestTime,
+        string $externalError
     ) {
         parent::__construct((object)[
             'id'                  => $id,
-            'externalURL'         => $externalURL,
-            'externalIDent'       => $externalIDent,
-            'externalRequestTime' => $externalRequestTime
+            'externalRequestTime' => $externalRequestTime,
+            'externalError' => $externalError
         ]);
     }
 
@@ -42,9 +39,8 @@ class DTOEReceiptCreated extends BaseDTO
     {
         return [
             'id'                  => 'required|integer',
-            'externalURL'         => 'required|string',
-            'externalIDent'       => 'required|string',
-            'externalRequestTime' => 'nullable|string'
+            'externalRequestTime' => 'nullable|string',
+            'externalError'       => 'required|string',
         ];
     }
 }

@@ -9,6 +9,8 @@ use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\EmployeeUpdatedRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\FNSNotificationCreatedRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\MarkFNSNotificationAsReadRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\ReceiptCreatedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\ReceiptFailedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\ReceiptUpdatedRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\SyncEmployeeWithFnsRequest;
 use Qugo\RabbitMQTransfer\Jobs\RabbitMQTransferJob;
 use Exception;
@@ -79,12 +81,14 @@ class RabbitMQTransferService
         return [
             ReceiptCreatedRequest::$signature => ReceiptCreatedRequest::class,
             CreateReceiptRequest::$signature => CreateReceiptRequest::class,
+            ReceiptFailedRequest::$signature => ReceiptFailedRequest::class,
+            ReceiptUpdatedRequest::$signature => ReceiptUpdatedRequest::class,
             CreateEmployeeRequest::$signature => CreateEmployeeRequest::class,
             EmployeeUpdatedRequest::$signature => EmployeeUpdatedRequest::class,
             SyncEmployeeWithFnsRequest::$signature => SyncEmployeeWithFnsRequest::class,
             FNSNotificationCreatedRequest::$signature => FNSNotificationCreatedRequest::class,
             MarkFNSNotificationAsReadRequest::$signature => MarkFNSNotificationAsReadRequest::class,
-            EmployeeTaxRequestCreatedRequest::$signature => EmployeeTaxRequestCreatedRequest::class
+            EmployeeTaxRequestCreatedRequest::$signature => EmployeeTaxRequestCreatedRequest::class,
         ];
     }
 }
