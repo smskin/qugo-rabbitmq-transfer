@@ -2,6 +2,7 @@
 
 namespace Qugo\RabbitMQTransfer;
 
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\SubscribeRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\CreateEmployeeRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\CreateReceiptRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\EmployeeTaxRequestCreatedRequest;
@@ -31,22 +32,23 @@ class RabbitMQTransferService
      */
     public function submit(BaseRequest $request)
     {
-        foreach ($request->getQueues() as $queue) {
-            dispatch(new RabbitMQTransferJob($request))
+        foreach ($request->queues as $queue) {
+            dispatch(new RabbitMQTransferJob($request, $request->sender))
                 ->onQueue($queue)
                 ->onConnection(config('qugo-rabbit-transfer.connection'));
         }
     }
 
     /**
-     * @param string $signature
-     * @param string $json
+     * @param string      $signature
+     * @param string      $json
+     * @param string|null $senderQueue
      * @throws Exception
      */
-    public function receive(string $signature, string $json)
+    public function receive(string $signature, string $json, ?string $senderQueue)
     {
         $request = $this->getRequest($signature, $json);
-        event($request->event);
+        event($request->event->setSenderQueue($senderQueue));
     }
 
     /**
@@ -89,6 +91,7 @@ class RabbitMQTransferService
             FNSNotificationCreatedRequest::$signature => FNSNotificationCreatedRequest::class,
             MarkFNSNotificationAsReadRequest::$signature => MarkFNSNotificationAsReadRequest::class,
             EmployeeTaxRequestCreatedRequest::$signature => EmployeeTaxRequestCreatedRequest::class,
+            SubscribeRequest::$signature => SubscribeRequest::class
         ];
     }
 }

@@ -30,6 +30,11 @@ abstract class BaseRequest
     public $queues = [];
 
     /**
+     * @var string
+     */
+    public $sender;
+
+    /**
      * BaseRequest constructor.
      *
      * @param BaseDTO $dto
@@ -45,6 +50,26 @@ abstract class BaseRequest
      * @return array
      */
     abstract public function getQueues(): array;
+
+    /**
+     * @param array $queues
+     * @return $this
+     */
+    public function setQueues(array $queues): BaseRequest
+    {
+        $this->queues = $queues;
+        return $this;
+    }
+
+    /**
+     * @param string $sender
+     * @return $this
+     */
+    public function setSender(string $sender): BaseRequest
+    {
+        $this->sender = $sender;
+        return $this;
+    }
 
     /**
      * @return BaseEvent
