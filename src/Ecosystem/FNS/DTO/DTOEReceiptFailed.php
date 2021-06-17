@@ -40,7 +40,7 @@ class DTOEReceiptFailed extends BaseDTO
         return [
             'id'                  => 'required|integer',
             'externalRequestTime' => 'nullable|string',
-            'externalError'       => 'required|string',
+            'externalError'       => 'nullable|string',
         ];
     }
 }
