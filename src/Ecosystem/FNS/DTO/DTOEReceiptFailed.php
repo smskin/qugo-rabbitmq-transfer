@@ -39,8 +39,8 @@ class DTOEReceiptFailed extends BaseDTO
     {
         return [
             'id'                  => 'required|integer',
-            'externalRequestTime' => 'nullable|string',
-            'externalError'       => 'nullable|string',
+            'externalRequestTime' => 'required|string',
+            'externalError'       => 'required|string|min:5',
         ];
     }
 }
