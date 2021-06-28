@@ -3,13 +3,13 @@
 namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Events;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
-use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeTaxRequestReceived;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOETaxQueryFailed;
 
 /**
- * Class EEmployeeTaxRequestReceived
+ * Class ETaxQueryFailed
  * @package Qugo\RabbitMQTransfer\Events
  */
-class EEmployeeTaxRequestReceived extends BaseEvent
+class ETaxQueryFailed extends BaseEvent
 {
     /**
      * @var string
@@ -22,20 +22,20 @@ class EEmployeeTaxRequestReceived extends BaseEvent
     public $requestDate;
 
     /**
-     * @var array
+     * @var string
      */
-    public $documents;
+    public $reason;
 
     /**
-     * EWorkmanTaxRequestCreate constructor.
+     * ETaxQueryFailed constructor.
      *
-     * @param DTOEEmployeeTaxRequestReceived $dto
+     * @param DTOETaxQueryFailed $dto
      */
-    public function __construct(DTOEEmployeeTaxRequestReceived $dto)
+    public function __construct(DTOETaxQueryFailed $dto)
     {
         $this->inn = $dto->data['inn'];
         $this->requestDate = $dto->data['requestDate'];
-        $this->documents = $dto->data['documents'];
+        $this->reason = $dto->data['reason'];
         parent::__construct($dto);
     }
 }
