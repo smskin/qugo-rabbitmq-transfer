@@ -7,11 +7,11 @@ use Qugo\RabbitMQTransfer\BaseDTO;
 use Qugo\RabbitMQTransfer\Rules\InnRule;
 
 /**
- * Class DTOWorkmanTaxRequestCreate
+ * Class DTOEEmployeeTaxRequestReceived
  *
  * @package Qugo\RabbitMQTransfer\DTO
  */
-class DTOEEmployeeTaxRequestCreated extends BaseDTO
+class DTOEEmployeeTaxRequestReceived extends BaseDTO
 {
     const WORKMAN_TAX_REQUEST_DOCUMENT_TAX     = 'TAX';
     const WORKMAN_TAX_REQUEST_DOCUMENT_DEBT    = 'DEBT';
