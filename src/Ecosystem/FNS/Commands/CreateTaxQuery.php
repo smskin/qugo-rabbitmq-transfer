@@ -4,14 +4,14 @@
 namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Commands;
 
 
-use Qugo\RabbitMQTransfer\BaseEvent;
+use Qugo\RabbitMQTransfer\BaseCommand;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOCreateTaxQuery;
 
 /**
  * Class EEmployeeTaxRequestCreate
  * @package Qugo\RabbitMQTransfer\Ecosystem\FNS\Commands
  */
-class CreateTaxQuery extends BaseEvent
+class CreateTaxQuery extends BaseCommand
 {
     /**
      * @var string
