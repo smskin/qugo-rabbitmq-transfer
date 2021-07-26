@@ -4,33 +4,33 @@ namespace Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests;
 
 use Qugo\RabbitMQTransfer\BaseEvent;
 use Qugo\RabbitMQTransfer\BaseRequest;
-use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOEEmployeeTaxRequestCreated;
-use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\EEmployeeTaxRequestCreated;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\DTO\DTOETaxQueryFailed;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Events\ETaxQueryFailed;
 use Qugo\RabbitMQTransfer\RabbitMQTransferService;
 
 /**
- * Class WorkmanTaxRequestCreate
+ * Class TaxQueryFailedRequest
  *
  * @package Qugo\RabbitMQTransfer\Requests
  */
-class EmployeeTaxRequestCreatedRequest extends BaseRequest
+class TaxQueryFailedRequest extends BaseRequest
 {
     /**
      * @var string
      */
-    public static $signature = 'employee.taxRequest.created';
+    public static $signature = 'employee.taxQuery.failed';
 
     /**
-     * @var DTOEEmployeeTaxRequestCreated
+     * @var DTOETaxQueryFailed
      */
     public $dto;
 
     /**
-     * WorkmanTaxRequestCreate constructor.
+     * TaxQueryFailedRequest constructor.
      *
-     * @param DTOEEmployeeTaxRequestCreated $dto
+     * @param DTOETaxQueryFailed $dto
      */
-    public function __construct(DTOEEmployeeTaxRequestCreated $dto)
+    public function __construct(DTOETaxQueryFailed $dto)
     {
         parent::__construct($dto);
     }
@@ -50,7 +50,7 @@ class EmployeeTaxRequestCreatedRequest extends BaseRequest
      */
     public function getEvent(): BaseEvent
     {
-        return new EEmployeeTaxRequestCreated($this->dto);
+        return new ETaxQueryFailed($this->dto);
     }
 
     /**
@@ -58,6 +58,6 @@ class EmployeeTaxRequestCreatedRequest extends BaseRequest
      */
     public static function getDTOClass(): string
     {
-        return DTOEEmployeeTaxRequestCreated::class;
+        return DTOETaxQueryFailed::class;
     }
 }

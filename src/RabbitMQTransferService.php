@@ -2,10 +2,13 @@
 
 namespace Qugo\RabbitMQTransfer;
 
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\CreateTaxQueryRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\TaxQueryFailedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\ReceiptReversedRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\SubscribeRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\CreateEmployeeRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\CreateReceiptRequest;
-use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\EmployeeTaxRequestCreatedRequest;
+use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\TaxQueryReceivedRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\EmployeeUpdatedRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\FNSNotificationCreatedRequest;
 use Qugo\RabbitMQTransfer\Ecosystem\FNS\Requests\MarkFNSNotificationAsReadRequest;
@@ -81,16 +84,24 @@ class RabbitMQTransferService
     protected function map(): array
     {
         return [
+            // Receipt requests
             ReceiptCreatedRequest::$signature => ReceiptCreatedRequest::class,
             CreateReceiptRequest::$signature => CreateReceiptRequest::class,
             ReceiptFailedRequest::$signature => ReceiptFailedRequest::class,
             ReceiptUpdatedRequest::$signature => ReceiptUpdatedRequest::class,
+            ReceiptReversedRequest::$signature => ReceiptReversedRequest::class,
+            // Employees requests
             CreateEmployeeRequest::$signature => CreateEmployeeRequest::class,
             EmployeeUpdatedRequest::$signature => EmployeeUpdatedRequest::class,
             SyncEmployeeWithFnsRequest::$signature => SyncEmployeeWithFnsRequest::class,
+            // FNS Notifications requests
             FNSNotificationCreatedRequest::$signature => FNSNotificationCreatedRequest::class,
             MarkFNSNotificationAsReadRequest::$signature => MarkFNSNotificationAsReadRequest::class,
-            EmployeeTaxRequestCreatedRequest::$signature => EmployeeTaxRequestCreatedRequest::class,
+            // Tax queries
+            CreateTaxQueryRequest::$signature => CreateTaxQueryRequest::class,
+            TaxQueryReceivedRequest::$signature => TaxQueryReceivedRequest::class,
+            TaxQueryFailedRequest::$signature => TaxQueryFailedRequest::class,
+            // Other requests
             SubscribeRequest::$signature => SubscribeRequest::class
         ];
     }
