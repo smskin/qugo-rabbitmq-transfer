@@ -49,7 +49,7 @@ class DTOTaxQueryReceived extends BaseDTO
                 new InnRule(),
             ],
             'requestDate' => 'required|string|date',
-            'documents' => 'required|array',
+            'documents' => 'array',
             'documents.*.type' => 'required|string|in:' . implode(
                     ',',
                     [
