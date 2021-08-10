@@ -18,7 +18,7 @@ class SyncEmployeeWithFnsRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'employee.sync';
+    public static $signature = 'fns.employee.sync';
 
     /**
      * @var DTOSyncEmployeeWithFns

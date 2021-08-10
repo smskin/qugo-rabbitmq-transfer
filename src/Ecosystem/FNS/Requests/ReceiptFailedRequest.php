@@ -17,7 +17,7 @@ class ReceiptFailedRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'receipt.failed';
+    public static $signature = 'fns.receipt.failed';
 
     /**
      * @var DTOEReceiptFailed

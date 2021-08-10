@@ -17,7 +17,7 @@ class ReceiptReversedRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'receipt.reversed';
+    public static $signature = 'fns.receipt.reversed';
 
     /**
      * @var DTOEReceiptReversed

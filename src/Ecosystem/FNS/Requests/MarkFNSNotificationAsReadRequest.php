@@ -18,7 +18,7 @@ class MarkFNSNotificationAsReadRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'fnsnotice.read';
+    public static $signature = 'fns.fnsnotice.read';
 
     /**
      * @var DTOMarkFNSNotificationAsRead

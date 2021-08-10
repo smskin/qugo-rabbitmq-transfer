@@ -18,7 +18,7 @@ class TaxQueryReceivedRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'employee.taxQuery.received';
+    public static $signature = 'fns.employee.taxQuery.received';
 
     /**
      * @var DTOTaxQueryReceived

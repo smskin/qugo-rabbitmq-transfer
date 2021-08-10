@@ -18,7 +18,7 @@ class CreateTaxQueryRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'employee.taxQuery.create';
+    public static $signature = 'fns.employee.taxQuery.create';
 
     /**
      * @var DTOCreateTaxQuery

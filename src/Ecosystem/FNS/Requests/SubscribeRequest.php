@@ -13,7 +13,7 @@ class SubscribeRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'subscribe';
+    public static $signature = 'fns.subscribe';
 
     /**
      * @var DTOSubscribe

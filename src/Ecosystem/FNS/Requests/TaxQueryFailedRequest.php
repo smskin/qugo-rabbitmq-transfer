@@ -18,7 +18,7 @@ class TaxQueryFailedRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'employee.taxQuery.failed';
+    public static $signature = 'fns.employee.taxQuery.failed';
 
     /**
      * @var DTOETaxQueryFailed
