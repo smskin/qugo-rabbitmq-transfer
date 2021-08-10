@@ -17,7 +17,7 @@ class ReceiptUpdatedRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'receipt.updated';
+    public static $signature = 'fns.receipt.updated';
 
     /**
      * @var DTOEReceiptUpdated

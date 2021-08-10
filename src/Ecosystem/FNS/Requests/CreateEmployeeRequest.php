@@ -18,7 +18,7 @@ class CreateEmployeeRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'employee.create';
+    public static $signature = 'fns.employee.create';
 
     /**
      * @var DTOCreateEmployee

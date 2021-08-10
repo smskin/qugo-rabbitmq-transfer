@@ -18,7 +18,7 @@ class FNSNotificationCreatedRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'fnsnotice.created';
+    public static $signature = 'fns.fnsnotice.created';
 
     /**
      * @var DTOEFNSNotificationCreated

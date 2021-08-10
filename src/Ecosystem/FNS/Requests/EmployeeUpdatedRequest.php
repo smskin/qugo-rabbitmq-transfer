@@ -18,7 +18,7 @@ class EmployeeUpdatedRequest extends BaseRequest
     /**
      * @var string
      */
-    public static $signature = 'employee.updated';
+    public static $signature = 'fns.employee.updated';
 
     /**
      * @var DTOEEmployeeUpdated
