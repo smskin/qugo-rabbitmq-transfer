@@ -60,7 +60,7 @@ class DTOTaxQueryReceived extends BaseDTO
                 ),
             'documents.*.documentIndex' => 'required',
             'documents.*.fullName' => 'required',
-            'documents.*.address' => 'required',
+            'documents.*.address' => 'nullable|string',
             'documents.*.amount' => 'required|numeric',
             'documents.*.recipientBankName' => 'required',
             'documents.*.recipientBankBik' => 'required',
